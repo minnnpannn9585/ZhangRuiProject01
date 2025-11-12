@@ -6,8 +6,8 @@ using TMPro;
 
 public class BtnHappy : MonoBehaviour
 {
-    public Image people;
-    public Sprite happy;
+    public GameObject peopleSad;
+    public GameObject peopleHappy;
     public GameObject line1;
     public GameObject line2;
     public GameObject nextBtn;
@@ -17,9 +17,15 @@ public class BtnHappy : MonoBehaviour
     public GameObject option1;
     public GameObject option2;
 
+    public string[] dialogues;
+
     public void ClickHappy()
     {
-        people.sprite = happy;
+        DialogueManagerNew.instance.dialogues = dialogues;
+        DialogueManagerNew.instance.StartDialogue();
+
+        peopleSad.SetActive(false);
+        peopleHappy.SetActive(true);
         text.text = "happy";
         line1.SetActive(true);
         line2.SetActive(true);

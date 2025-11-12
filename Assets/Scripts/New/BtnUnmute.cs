@@ -16,8 +16,12 @@ public class BtnUnmute : MonoBehaviour
     public SelectOptionBtn selectOptionBtn;
     public GameObject option;
 
+    public string[] dialogues;
+
     public void ClickUnmute()
     {
+        DialogueManagerNew.instance.dialogues = dialogues;
+        DialogueManagerNew.instance.StartDialogue();
         nextBtn.SetActive(true);
         transform.parent.parent.GetChild(1).gameObject.SetActive(false);
         transform.parent.parent.GetChild(2).gameObject.SetActive(false);

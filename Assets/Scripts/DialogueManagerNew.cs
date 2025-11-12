@@ -6,10 +6,23 @@ using UnityEngine.UI;
 
 public class DialogueManagerNew : MonoBehaviour
 {
+    public static DialogueManagerNew instance;
     public GameObject dialogueUI;
     public TMP_Text dialogueText;
     public int index;
     public string[] dialogues;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void StartDialogue()
     {

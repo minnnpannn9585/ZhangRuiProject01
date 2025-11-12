@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BtnAngry : MonoBehaviour
+public class BtnFree : MonoBehaviour
 {
-    public GameObject peopleSad;
+    public GameObject peopleFree;
+    public GameObject peopleHappy;
     public GameObject peopleAngry;
+
     public GameObject line1;
     public GameObject line2;
+    public GameObject line3;
     public GameObject nextBtn;
-    
+
     public TMP_Text text;
     public SelectOptionBtn selectOptionBtn;
     public GameObject option1;
@@ -19,19 +22,22 @@ public class BtnAngry : MonoBehaviour
 
     public string[] dialogues;
 
-    public void ClickAngry()
+    public void ClickFree()
     {
         DialogueManagerNew.instance.dialogues = dialogues;
         DialogueManagerNew.instance.StartDialogue();
 
-        peopleSad.SetActive(false);
-        peopleAngry.SetActive(true);
-        text.text = "angry";
+        peopleFree.SetActive(true);
+        peopleHappy.SetActive(false);
+        peopleAngry.SetActive(false);
+        text.text = "free";
         line1.SetActive(true);
         line2.SetActive(true);
+        line3.SetActive(true);
         nextBtn.SetActive(true);
         selectOptionBtn.enabled = false;
         option1.SetActive(false);
         option2.SetActive(false);
     }
 }
+
