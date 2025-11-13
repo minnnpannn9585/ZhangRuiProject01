@@ -8,6 +8,7 @@ public class SelectOptionBtn : MonoBehaviour
 {
     private GameObject option;
     private GameObject option2;
+    private GameObject option3;
     Button button;
     private bool isOn = false;
     
@@ -20,6 +21,12 @@ public class SelectOptionBtn : MonoBehaviour
         {
             option2 = transform.GetChild(4).gameObject;
         }
+
+        if (transform.childCount == 6)
+        {
+            option2 = transform.GetChild(4).gameObject;
+            option3 = transform.GetChild(5).gameObject;
+        }
         
         button.onClick.AddListener(TurnOnOffOption);
     }
@@ -31,6 +38,11 @@ public class SelectOptionBtn : MonoBehaviour
         if (option2 != null)
         {
             option2.SetActive(isOn);
+        }
+
+        if (option3 != null)
+        {
+            option3.SetActive(isOn);
         }
     }
 

@@ -1,18 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BtnMain : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject peopleCalm;
+    public GameObject peopleFree;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject peopleSteady;
+    
+    public GameObject line1;
+    
+    public TMP_Text text;
+    public SelectOptionBtn selectOptionBtn;
+    public GameObject option1;
+    public GameObject option2;
+    public GameObject option3;
+    
+    public string[] dialogues;
+
+    public GameObject whiteImageAnim;
+
+
+    public void ClickMain()
     {
+        DialogueManagerNew.instance.dialogues = dialogues;
+        DialogueManagerNew.instance.StartDialogue();
         
+        peopleCalm.SetActive(false);
+        peopleFree.SetActive(false);
+        peopleSteady.SetActive(true);
+        text.text = "main";
+        
+        line1.SetActive(true);
+        selectOptionBtn.enabled = false;
+        option1.SetActive(false);
+        option2.SetActive(false);
+        option3.SetActive(false);
+        
+        whiteImageAnim.SetActive(true);
     }
 }
